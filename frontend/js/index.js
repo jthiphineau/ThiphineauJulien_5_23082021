@@ -30,6 +30,8 @@ fetch("http://localhost:3000/api/cameras")
       productsView(item);
     }
   })
+
+  //SI PROBLEME API
   .catch(function (err) {
     console.log("fetch Error");
     alert("Désolé aucun produit n'a été trouvé !");
