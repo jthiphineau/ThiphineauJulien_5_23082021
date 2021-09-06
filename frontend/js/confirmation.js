@@ -2,6 +2,7 @@
 let paramsUrl = new URL(window.location).searchParams;
 
 let orderId = paramsUrl.get("orderId");
+console.log("orderId:" + orderId);
 
 //RECUPERATION DES DONNEES CONTACT
 let contact = JSON.parse(localStorage.getItem("contact"));
@@ -13,7 +14,7 @@ let totalPriceCalculation = JSON.parse(
 
 // AFFICHAGE HTML
 let confirmationContainer = document.getElementById("confirmationContainer");
-confirmationView = () => {
+function confirmationView() {
   confirmationContainer.innerHTML = `<div class="text-center mt-1 mb-2">
     <h1 class="display-5 fw-bolder text-center">Confirmation de votre commande</h1>
     <p class="text-center"> Merci ${contact.firstName} ${contact.lastName} !</p>
@@ -24,14 +25,14 @@ confirmationView = () => {
     } au moment de l'expédition. </br>  
     <a id="backHome" href="../index.html" class="btn btn-outline-dark mt-5 display-5">Retour à l'accueil <i class="fas fa-camera-retro"></i></a>
 </div>`;
-};
+}
 
 confirmationView();
 
-refresh = () => {
+function refresh() {
   localStorage.clear();
   window.location.reload();
-};
+}
 
 let backHome = document.getElementById("backHome");
 backHome.addEventListener("click", refresh);

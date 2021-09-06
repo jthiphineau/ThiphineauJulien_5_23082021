@@ -161,9 +161,11 @@ if (cart == null || cart == []) {
         body: JSON.stringify(customerOrder),
       })
         .then(function (response) {
+          console.log(response.json);
           return response.json();
         })
         .then(function (r) {
+          console.log("contact : " + r.contact);
           localStorage.setItem("contact", JSON.stringify(r.contact));
           window.location.assign("confirmation_page.html?orderId=" + r.orderId);
         })
